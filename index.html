@@ -6,6 +6,23 @@
   <title>Waqar - Abayas & Hijabs</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  // Store selected language in localStorage when the user changes it
+  document.getElementById('language-switcher').addEventListener('change', function() {
+    const selectedLanguage = this.value;
+    localStorage.setItem('language', selectedLanguage);  // Save the selected language in localStorage
+  });
+
+  // Set the language based on localStorage value when the page loads
+  window.addEventListener('DOMContentLoaded', function() {
+    const storedLanguage = localStorage.getItem('language');
+    
+    if (storedLanguage) {
+      // Set the language dropdown to the stored language
+      document.getElementById('language-switcher').value = storedLanguage;
+    }
+  });
+</script>
 <body>
 
   <header class="hero">
@@ -23,6 +40,7 @@
             <option value="fr">FR</option>
           </select>
         </li>
+        <button id="cart-btn">Cart</button>
       </ul>
     </nav>
     
@@ -40,19 +58,19 @@
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
   
       <!-- Row 2 -->
@@ -60,19 +78,19 @@
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
   
       <!-- Row 3 -->
@@ -80,19 +98,19 @@
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
       <div class="product-card">
         <img src="images/abaya1.jpg" alt="Elegant Black Abaya">
         <h3>Elegant Black Abaya</h3>
         <p>Price: 500 MAD</p>
-        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500">Add to Cart</button>
+        <button class="add-to-cart" data-name="Elegant Black Abaya" data-price="500" data-image ="images/abaya1.jpg">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -106,7 +124,7 @@
   <section id="contact" class="section contact">
     <h2 id="contact-title">Contact Us</h2>
     <p id="contact-text">Email: contact@waqar.com</p>
-    <p>Phone: +212 6 00 00 00 00</p>
+    <p id="phone-text">Phone: +212 6 00 00 00 00</p>
   </section>
 
   <footer class="footer">

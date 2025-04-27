@@ -1,0 +1,119 @@
+let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Retrieve cart from localStorage
+
+// Back button to return to the shop page
+document.getElementById('back-btn').addEventListener('click', function() {
+  window.location.href = 'index.html';  // Redirect back to the main shopping page
+});
+
+// Checkout button action
+document.getElementById('checkout-btn').addEventListener('click', function() {
+  alert("Proceeding to checkout!");
+  // Redirect to checkout page or add logic for checkout process
+});
+
+
+// Update Cart Counter
+function updateCartCount() {
+    document.getElementById('cart-count').innerText = cart.length;
+  }
+
+
+// Display Cart Items
+function displayCartItems() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = '';  // Clear the container before inserting new content
+  let totalPrice = 0;  // Initialize total price
+  updateCartCount();
+
+  // Check if cart is empty
+  if (cart.length === 0) {
+    totalPrice = 0;  // Set total price to 0 if cart is empty
+    cartItemsContainer.innerHTML = '<p>Your cart is empty!</p>';
+    document.getElementById('total-price').innerText = totalPrice;  // Update the total price display
+    return;
+  }
+
+  // Loop through the cart and display each item
+  cart.forEach((item, index) => {
+    totalPrice += item.price;
+
+    // Create cart item element
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-item');
+    cartItem.innerHTML = `
+      <div class="cart-item-content">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+        <div class="cart-item-details">
+          <p>${item.name} - ${item.price} MAD</p>
+          <button onclick="removeItemFromCart(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+    cartItemsContainer.appendChild(cartItem);
+  });
+
+  // Display total price
+  document.getElementById('total-price').innerText = totalPrice;
+}
+
+// Remove item from cart
+function removeItemFromCart(index) {
+  cart.splice(index, 1);  // Remove item from the cart array
+  localStorage.setItem('cart', JSON.stringify(cart));  // Save the updated cart to localStorage
+  displayCartItems();  // Re-render the cart and update total price
+}
+
+
+// View Cart
+document.getElementById('view-cart').addEventListener('click', function() {
+    if (cart.length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+  
+    let cartContent = '🛒 Your Cart:\n\n';
+    let totalPrice = 0;  // Initialize total price
+  
+    // Generate cart content
+    cart.forEach((item, index) => {
+      cartContent += `${index + 1}. ${item.name} - ${item.price} MAD\n`;
+      totalPrice += item.price;  // Add the item price to total
+    });
+  
+    cartContent += `\nTotal Price: ${totalPrice} MAD`;  // Display total price in cart alert
+  
+    alert(cartContent);
+  });
+  
+  // Save Cart to localStorage
+  function saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));  // Convert cart array to a string and save it
+  }
+
+
+// Language Switcher
+document.getElementById('language-switcher').addEventListener('change', function(event) {
+    const lang = event.target.value;
+    
+    if (lang === 'fr') {
+      document.getElementById('site-title').innerText = 'Waqar';
+      document.getElementById('nav-collection').innerText = 'Collection';
+      document.getElementById('nav-about').innerText = 'À propos';
+      document.getElementById('nav-contact').innerText = 'Contact';
+      document.getElementById('cart-title').innerText = 'Votre Panier';
+    } else if (lang === 'ar') {
+      document.getElementById('site-title').innerText = 'وقار';
+      document.getElementById('nav-collection').innerText = 'المجموعة';
+      document.getElementById('nav-about').innerText = 'معلومات عنا';
+      document.getElementById('nav-contact').innerText = 'اتصل بنا';
+      document.getElementById('cart-title').innerText = 'سلة مشترياتك';
+    } else {
+      document.getElementById('site-title').innerText = 'Waqar';
+      document.getElementById('nav-collection').innerText = 'Collection';
+      document.getElementById('nav-about').innerText = 'About Us';
+      document.getElementById('nav-contact').innerText = 'Contact Us';
+      document.getElementById('cart-title').innerText = 'Your Cart';
+    }
+  });
+// Initialize the cart display when the page loads
+displayCartItems();

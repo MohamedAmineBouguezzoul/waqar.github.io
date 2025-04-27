@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart - Waqar Abayas & Hijabs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section (Navbar) -->
+  <header class="hero">
+    <nav class="navbar">
+      <h1 class="logo" id="site-title">Waqar</h1>
+      <ul class="nav-links">
+        <li><a id="nav-collection" href="index.html#collection">Collection</a></li>
+        <li><a id="nav-about" href="index.html#about">About Us</a></li>
+        <li><a id="nav-contact" href="index.html#contact">Contact</a></li>
+        <li><button id="view-cart" type="button">🛒 (<span id="cart-count">0</span>)</button></li>
+        <li>
+          <select id="language-switcher">
+            <option value="en">EN</option>
+            <option value="ar">AR</option>
+            <option value="fr">FR</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Cart Content Section -->
+  <section id="cart-section" class="section">
+    <h2 id="cart-title">Your Cart</h2>
+    
+    <!-- Cart Items will be injected dynamically here -->
+    <div id="cart-items"></div>
+    
+    <!-- Total Price Section -->
+    <div id="cart-total">
+      <p>Total Price: <span id="total-price">0</span> MAD</p>
+    </div>
+
+    <button id="checkout-btn">Proceed to Checkout</button>
+    <button id="back-btn">Back to Collection</button>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2025 Waqar. All rights reserved.</p>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>
