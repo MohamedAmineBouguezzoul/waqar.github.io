@@ -1,5 +1,43 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Retrieve cart from localStorage
 
+
+// Set the language based on localStorage value when the page loads
+window.addEventListener('DOMContentLoaded', function() {
+  const storedLanguage = localStorage.getItem('language');
+  
+  if (storedLanguage) {
+    // Set the language dropdown to the stored language
+    document.getElementById('language-switcher').value = storedLanguage;
+    updateTextBasedOnLanguage(storedLanguage);  // Update text based on stored language
+  }
+});
+
+// Function to update text based on the selected language
+function updateTextBasedOnLanguage(lang) {
+  if (lang === 'fr') {
+    document.getElementById('site-title').innerText = 'Waqar';
+    document.getElementById('nav-collection').innerText = 'Collection';
+    document.getElementById('nav-about').innerText = 'À propos';
+    document.getElementById('nav-contact').innerText = 'Contact';
+    document.getElementById('cart-title').innerText = 'Votre Panier';
+    document.body.style.direction = 'ltr'; 
+  } else if (lang === 'ar') {
+    document.getElementById('site-title').innerText = 'وقار';
+    document.getElementById('nav-collection').innerText = 'المجموعة';
+    document.getElementById('nav-about').innerText = 'معلومات عنا';
+    document.getElementById('nav-contact').innerText = 'اتصل بنا';
+    document.getElementById('cart-title').innerText = 'سلة مشترياتك';
+    document.body.style.direction = 'rtl'; 
+  } else {
+    document.getElementById('site-title').innerText = 'Waqar';
+    document.getElementById('nav-collection').innerText = 'Collection';
+    document.getElementById('nav-about').innerText = 'About Us';
+    document.getElementById('nav-contact').innerText = 'Contact Us';
+    document.getElementById('cart-title').innerText = 'Your Cart';
+    document.body.style.direction = 'ltr'; 
+  }
+}
+
 // Back button to return to the shop page
 document.getElementById('back-btn').addEventListener('click', function() {
   window.location.href = 'index.html';  // Redirect back to the main shopping page
@@ -91,29 +129,14 @@ document.getElementById('view-cart').addEventListener('click', function() {
   }
 
 
+  
 // Language Switcher
 document.getElementById('language-switcher').addEventListener('change', function(event) {
-    const lang = event.target.value;
-    
-    if (lang === 'fr') {
-      document.getElementById('site-title').innerText = 'Waqar';
-      document.getElementById('nav-collection').innerText = 'Collection';
-      document.getElementById('nav-about').innerText = 'À propos';
-      document.getElementById('nav-contact').innerText = 'Contact';
-      document.getElementById('cart-title').innerText = 'Votre Panier';
-    } else if (lang === 'ar') {
-      document.getElementById('site-title').innerText = 'وقار';
-      document.getElementById('nav-collection').innerText = 'المجموعة';
-      document.getElementById('nav-about').innerText = 'معلومات عنا';
-      document.getElementById('nav-contact').innerText = 'اتصل بنا';
-      document.getElementById('cart-title').innerText = 'سلة مشترياتك';
-    } else {
-      document.getElementById('site-title').innerText = 'Waqar';
-      document.getElementById('nav-collection').innerText = 'Collection';
-      document.getElementById('nav-about').innerText = 'About Us';
-      document.getElementById('nav-contact').innerText = 'Contact Us';
-      document.getElementById('cart-title').innerText = 'Your Cart';
-    }
-  });
+  const lang = event.target.value;
+  localStorage.setItem('language', lang);  // Save the selected language in localStorage
+  updateTextBasedOnLanguage(lang);  // Update text when language changes
+});
+
+
 // Initialize the cart display when the page loads
 displayCartItems();

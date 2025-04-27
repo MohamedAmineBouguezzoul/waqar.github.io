@@ -18,28 +18,43 @@ function updateTextBasedOnLanguage(lang) {
     document.getElementById('nav-collection').innerText = 'Collection';
     document.getElementById('nav-about').innerText = 'À propos';
     document.getElementById('nav-contact').innerText = 'Contact';
+    document.getElementById('cart-btn').innerText = 'Panier';
     document.getElementById('hero-title').innerText = 'Découvrez la beauté intemporelle';
     document.getElementById('hero-subtitle').innerText = 'Abayas et Hijabs élégants fabriqués au Maroc 🇲🇦';
     document.getElementById('shop-now-btn').innerText = 'Acheter maintenant';
     document.getElementById('collection-title').innerText = 'Notre Collection';
     document.getElementById('about-title').innerText = 'À propos de Waqar';
-    document.getElementById('about-text').innerText = 'Nous offrons les plus belles abayas et hijabs faits main, combinant l\'artisanat marocain traditionnel avec un design moderne pour la femme élégante.';
+    document.getElementById('about-text').innerText = 
+  "Chez Waqar, nous nous engageons à offrir des créations qui allient l’élégance moderne et la richesse de l’artisanat marocain. " +
+  "Chaque abaya et hijab est méticuleusement conçu à la main par nos artisans qualifiés, en utilisant des tissus de haute qualité et en respectant les traditions ancestrales. " +
+  "Nous croyons que la mode ne se résume pas seulement à l'apparence, mais à l’expression de la culture, de la personnalité et de l'élégance. " +
+  "Nos créations sont conçues pour offrir à chaque femme une expérience unique, en alliant confort, beauté et style intemporel. " +
+  "En collaborant étroitement avec des créateurs marocains, nous nous efforçons de perpétuer l'héritage du textile tout en introduisant des éléments modernes pour répondre aux attentes des femmes d'aujourd'hui." +
+  "Chez Waqar, nous pensons que chaque pièce est plus qu'un simple vêtement – elle représente une histoire, une tradition et une vision du futur."
+
     document.getElementById('contact-title').innerText = 'Contactez-nous';
     document.getElementById('contact-text').innerText = 'Email: contact@waqar.com';
     document.getElementById('phone-text').innerText = 'tél: +212 6 00 00 00 00';
-
     document.body.style.direction = 'ltr'; // Left to right for French
   } else if (lang === 'ar') {
     document.getElementById('site-title').innerText = 'وقار';
     document.getElementById('nav-collection').innerText = 'المجموعة';
     document.getElementById('nav-about').innerText = 'معلومات عنا';
     document.getElementById('nav-contact').innerText = 'اتصل بنا';
+    document.getElementById('cart-btn').innerText = 'المشتريات';
     document.getElementById('hero-title').innerText = 'اكتشف الجمال الخالد';
     document.getElementById('hero-subtitle').innerText = 'عبايات وحجابات أنيقة مصنوعة في المغرب 🇲🇦';
     document.getElementById('shop-now-btn').innerText = 'تسوق الآن';
     document.getElementById('collection-title').innerText = 'مجموعتنا';
     document.getElementById('about-title').innerText = 'حول وقار';
-    document.getElementById('about-text').innerText = 'نحن نقدم أفضل العبايات والحجابات المصنوعة يدويًا، التي تجمع بين الحرفية المغربية التقليدية والتصميم العصري للمرأة الأنيقة.';
+    document.getElementById('about-text').innerText = 
+  "في وقار، نحن ملتزمون بتقديم تصاميم تجمع بين الأناقة العصرية وثراء الحرفية المغربية. " +
+  "كل عباءة وحجاب يتم تصميمه يدويًا بعناية على يد حرفيين ماهرين، باستخدام أقمشة عالية الجودة وبالاحتفاظ بالتقاليد القديمة. " +
+  "نعتقد أن الموضة ليست مجرد مظهر خارجي، بل هي تعبير عن الثقافة والشخصية والأناقة. " +
+  "تم تصميم إبداعاتنا لتوفير تجربة فريدة لكل امرأة، حيث ندمج الراحة والجمال والأسلوب الخالد. " +
+  "من خلال التعاون الوثيق مع مصممين مغاربة، نسعى للحفاظ على تراث النسيج المغربي مع إدخال عناصر عصرية لتلبية احتياجات النساء في العصر الحالي." +
+  "في وقار، نعتقد أن كل قطعة هي أكثر من مجرد ملابس، إنها تمثل قصة، وتقاليد، ورؤية للمستقبل."
+
     document.getElementById('contact-title').innerText = 'اتصل بنا';
     document.getElementById('contact-text').innerText = 'البريد الإلكتروني: contact@waqar.com';
     document.getElementById('phone-text').innerText = 'رقم الهاتف: +212 6 00 00 00 00';
@@ -49,12 +64,20 @@ function updateTextBasedOnLanguage(lang) {
     document.getElementById('nav-collection').innerText = 'Collection';
     document.getElementById('nav-about').innerText = 'About Us';
     document.getElementById('nav-contact').innerText = 'Contact Us';
+    document.getElementById('cart-btn').innerText = 'Cart';
     document.getElementById('hero-title').innerText = 'Discover Timeless Beauty';
     document.getElementById('hero-subtitle').innerText = 'Elegant Abayas and Hijabs Handcrafted in Morocco 🇲🇦';
     document.getElementById('shop-now-btn').innerText = 'Shop Now';
     document.getElementById('collection-title').innerText = 'Our Collection';
     document.getElementById('about-title').innerText = 'About Waqar';
-    document.getElementById('about-text').innerText = 'We offer the finest handcrafted abayas and hijabs, blending traditional Moroccan craftsmanship with modern design for the elegant woman.';
+    document.getElementById('about-text').innerText = 
+  "At Waqar, we are committed to offering creations that blend modern elegance with the richness of Moroccan craftsmanship. " +
+  "Each abaya and hijab is meticulously handcrafted by skilled artisans using high-quality fabrics while respecting ancient traditions. " +
+  "We believe that fashion is not just about appearance, but about expressing culture, personality, and elegance. " +
+  "Our creations are designed to provide every woman with a unique experience, combining comfort, beauty, and timeless style. " +
+  "By working closely with Moroccan designers, we strive to preserve the heritage of textile arts while introducing modern elements to meet the expectations of today's women." +
+  "At Waqar, we believe that every piece is more than just clothing – it represents a story, a tradition, and a vision for the future."
+
     document.getElementById('contact-title').innerText = 'Contact Us';
     document.getElementById('contact-text').innerText = 'Email: contact@waqar.com';
     document.getElementById('phone-text').innerText = 'Phone: +212 6 00 00 00 00';
