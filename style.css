@@ -19,7 +19,7 @@ body {
   align-items: center;
   padding: 20px;
   background-color: #000000;
-  color: #fff;
+  color: #ffffff;
   width: 100%; /* Ensures the navbar takes up the full width */
   position: fixed; /* Fixes the navbar at the top of the page */
   top: 0; /* Positions the navbar at the top */
@@ -153,7 +153,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
+  color: #ffffff;
   position: relative;
 }
 
@@ -205,12 +205,16 @@ body {
 .section {
   padding: 80px 20px;
   text-align: center;
+  background: linear-gradient(90deg, #c82983aa, #980de8bb);
 }
 
 .section h2 {
   font-size: 36px;
   margin-bottom: 30px;
-  color: #3a2e39;
+  color: #ffffffdb;
+  padding: 10px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #000000aa, #980de8bb);
 }
 
 /* === PRODUCTS === */
@@ -219,52 +223,19 @@ body {
   flex-wrap: wrap;
   justify-content: space-between; /* Distribute the items evenly */
   gap: 30px;
+  /* background-color: #4a006755; */
+  background: linear-gradient(45deg, #000000aa, #980de8bb);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .product-card {
-  background: #f8f8f8;
+  background: #b832e475;
   border-radius: 8px;
   overflow: hidden;
   width: calc(33.333% - 20px); /* Each card takes up 1/3 of the container width */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(82, 3, 96, 0.1);
   transition: transform 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-}
-
-.product-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  margin: 15px 0 10px;
-  font-size: 22px;
-}
-
-.product-card p {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #777;
-}
-
-.product-card button {
-  background: #3a2e39;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.product-card button:hover {
-  background: #5c4967;
 }
 
 /* === RESPONSIVE DESIGN === */
@@ -283,27 +254,39 @@ body {
 
 .product-card:hover {
   transform: translateY(-8px);
+  background: #e186ffb9;  
 }
 
 .product-card img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  transition: all 0.3s ease; 
+}
+
+.product-card img:hover {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  transition: all 0.3s ease; 
+  image-rendering: optimizeQuality;
 }
 
 .product-card h3 {
   margin: 15px 0 10px;
   font-size: 22px;
+  color: #f4bbff;
 }
 
 .product-card p {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #777;
+  color: #fcf0ff;
+  font: 400 20px 'amiri', bold;
 }
 
 .product-card button {
-  background: #3a2e39;
+  background: #b636ab;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -315,8 +298,9 @@ body {
 }
 
 .product-card button:hover {
-  background: #5c4967;
+  background: #480072;
 }
+
 
 /* === ABOUT SECTION === */
 .about p {

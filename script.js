@@ -108,7 +108,7 @@ updateCartCount();
 
 // Scroll to Collection Section
 document.getElementById('shop-now-btn').addEventListener('click', function() {
-  document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('collection-title').scrollIntoView({ behavior: 'smooth' });
 });
 
 document.getElementById('nav-contact').addEventListener('click', function() {
@@ -116,7 +116,7 @@ document.getElementById('nav-contact').addEventListener('click', function() {
 });
 
 document.getElementById('nav-about').addEventListener('click', function() {
-  document.getElementById('about-title').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
 });
 
 document.getElementById('nav-collection').addEventListener('click', function() {
