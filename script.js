@@ -1,5 +1,23 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage or initialize as empty
 
+window.addEventListener('DOMContentLoaded', function() {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const productName = this.getAttribute('data-name');
+      const productPrice = parseInt(this.getAttribute('data-price'));
+      const productImage = this.getAttribute('data-image');
+      
+      cart.push({ name: productName, price: productPrice, image: productImage });
+      updateCartCount();
+      saveCartToLocalStorage();
+      alert(`${productName} added to cart!`);
+    });
+  });
+});
+
+
 // Set the language based on localStorage value when the page loads
 window.addEventListener('DOMContentLoaded', function() {
   const storedLanguage = localStorage.getItem('language');
@@ -163,3 +181,4 @@ document.getElementById('language-switcher').addEventListener('change', function
 document.getElementById('cart-btn').addEventListener('click', function() {
   window.location.href = 'cart.html'; // Redirect to the cart page (cart.html)
 });
+

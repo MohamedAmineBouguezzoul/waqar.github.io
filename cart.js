@@ -14,12 +14,22 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // Function to update text based on the selected language
 function updateTextBasedOnLanguage(lang) {
+const removeButtons = document.getElementsByClassName('remove-btn');
+
   if (lang === 'fr') {
     document.getElementById('site-title').innerText = 'Waqar';
     document.getElementById('nav-collection').innerText = 'Collection';
     document.getElementById('nav-about').innerText = 'À propos';
     document.getElementById('nav-contact').innerText = 'Contact';
     document.getElementById('cart-title').innerText = 'Votre Panier';
+    document.getElementById('checkout-btn').innerText = 'Passer à la caisse';
+    document.getElementById('back-btn').innerText = 'Retour au magasin';
+
+    // Loop through each button and change its text
+    for (let i = 0; i < removeButtons.length; i++) {
+      removeButtons[i].innerText = 'Retirer';
+    }
+    
     document.body.style.direction = 'ltr'; 
   } else if (lang === 'ar') {
     document.getElementById('site-title').innerText = 'وقار';
@@ -27,6 +37,12 @@ function updateTextBasedOnLanguage(lang) {
     document.getElementById('nav-about').innerText = 'معلومات عنا';
     document.getElementById('nav-contact').innerText = 'اتصل بنا';
     document.getElementById('cart-title').innerText = 'سلة مشترياتك';
+    document.getElementById('checkout-btn').innerText = 'الدفع';
+    document.getElementById('back-btn').innerText = 'العودة إلى المتجر';
+    // Loop through each button and change its text
+    for (let i = 0; i < removeButtons.length; i++) {
+      removeButtons[i].innerText = 'إزالة';
+    }
     document.body.style.direction = 'rtl'; 
   } else {
     document.getElementById('site-title').innerText = 'Waqar';
@@ -34,6 +50,12 @@ function updateTextBasedOnLanguage(lang) {
     document.getElementById('nav-about').innerText = 'About Us';
     document.getElementById('nav-contact').innerText = 'Contact Us';
     document.getElementById('cart-title').innerText = 'Your Cart';
+    document.getElementById('checkout-btn').innerText = 'Checkout';
+    document.getElementById('back-btn').innerText = 'Back to Shop';
+    // Loop through each button and change its text
+    for (let i = 0; i < removeButtons.length; i++) {
+      removeButtons[i].innerText = 'Remove';
+    }
     document.body.style.direction = 'ltr'; 
   }
 }
@@ -45,7 +67,17 @@ document.getElementById('back-btn').addEventListener('click', function() {
 
 // Checkout button action
 document.getElementById('checkout-btn').addEventListener('click', function() {
+  const lang = localStorage.getItem('language');
+
+  if (lang === 'fr') {
+    alert('Passer à la caisse !');  // Alert in French
+  }
+  else if (lang === 'ar') {
+    alert('الدفع!');  // Alert in Arabic
+  }
+  else if (lang === 'en') {
   alert("Proceeding to checkout!");
+}  // Alert in English
   // Redirect to checkout page or add logic for checkout process
 });
 
@@ -77,13 +109,12 @@ function displayCartItems() {
 
     // Create cart item element
     const cartItem = document.createElement('div');
-    cartItem.classList.add('cart-item');
     cartItem.innerHTML = `
       <div class="cart-item-content">
         <img src="${item.image}" alt="${item.name}" class="cart-item-image">
         <div class="cart-item-details">
           <p>${item.name} - ${item.price} MAD</p>
-          <button onclick="removeItemFromCart(${index})">Remove</button>
+          <button class="remove-btn" onclick="removeItemFromCart(${index})">Remove</button>
         </div>
       </div>
     `;
